@@ -8,5 +8,4 @@ RUN pip install pandas==0.23.4
 RUN curl $LIVY_BIN_ZIP_URL --output livy.zip
 RUN unzip livy.zip && rm livy.zip
 
-WORKDIR /livy
-ENTRYPOINT ["bash", "-c", "while :; do ./bin/livy-server start; sleep 5; done"]
+ENTRYPOINT ["bash", "-c", "while :; do cd /livy && ./bin/livy-server start; sleep 60; done"]
