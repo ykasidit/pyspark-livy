@@ -6,6 +6,6 @@ ENV SPARK_HOME=/opt/miniconda3/lib/python3.7/site-packages/pyspark
 RUN apt-get install -y procps curl htop unzip
 RUN pip install pandas==0.23.4
 RUN curl $LIVY_BIN_ZIP_URL --output livy.zip
-RUN unzip livy.zip && rm livy.zip
+RUN unzip livy.zip -d livy && rm livy.zip
 
 ENTRYPOINT ["bash", "-c", "while :; do cd /livy && ./bin/livy-server start; sleep 60; done"]
