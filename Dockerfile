@@ -10,4 +10,6 @@ ENV LIVY_UNZIPPED_DIR=/apache-livy-0.7.0-incubating-bin
 RUN curl $LIVY_BIN_ZIP_URL --output livy.zip
 RUN unzip livy.zip && rm livy.zip
 
+RUN pip install geospark==1.3.1
+
 ENTRYPOINT ["bash", "-c", "while :; do cd $LIVY_UNZIPPED_DIR && ./bin/livy-server start; sleep 60; done"]
