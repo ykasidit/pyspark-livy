@@ -12,5 +12,6 @@ RUN unzip livy.zip && rm livy.zip
 
 RUN pip install geospark==1.3.1
 RUN pip install koalas
+RUN apt-get install -y libatlas3-base libopenblas-base
 
 ENTRYPOINT ["bash", "-c", "while :; do cd $LIVY_UNZIPPED_DIR && ./bin/livy-server start; sleep 60; done"]
